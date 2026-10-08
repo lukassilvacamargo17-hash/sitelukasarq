@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lukas Camargo Arquitetura | Ourinhos-SP</title>
+<meta name="description" content="Projetos residenciais, comerciais e corporativos em Ourinhos-SP e atendimento on-line.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#111;--c:#F4EEE5;--d:#B08D57;--n:#8A8A8A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+body{background:var(--g);color:var(--c);font:400 16px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.1}
+h1{font-size:clamp(2.4rem,5.4vw,4.4rem)}h2{font-size:clamp(2rem,4vw,3.1rem)}h3{font-size:1.5rem}
+em{font-style:italic;color:var(--d)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.light{background:var(--c);color:var(--g)}.light p{color:#5d5d5d}
+.gold{background:var(--d);color:var(--g)}
+.dark2{background:#181818}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--d);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--d)}
+.sub{color:var(--n);margin-top:16px;max-width:560px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;font:600 .8rem Manrope;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--d);background:var(--d);color:var(--g);cursor:pointer;transition:.3s}
+.btn:hover{background:transparent;color:var(--d)}
+.btn.o{background:transparent;color:var(--c)}.btn.o:hover{background:var(--d);color:var(--g)}
+.gold .btn{background:var(--g);border-color:var(--g);color:var(--c)}.gold .btn:hover{background:transparent;color:var(--g)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.35s}
+header.s{background:rgba(17,17,17,.96);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(176,141,87,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:.04em}
+.logo span{color:var(--d)}
+nav ul{display:flex;gap:30px;list-style:none;padding:0;font-size:.82rem;letter-spacing:.08em}
+nav a:hover{color:var(--d)}
+.nav .btn{padding:11px 22px}
+.burger{display:none;background:none;border:0;color:var(--c);font-size:1.6rem;cursor:pointer}
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;padding:0;overflow:hidden}
+.hero .l{display:flex;flex-direction:column;justify-content:center;padding:130px 56px 70px max(24px,calc((100vw - 1160px)/2 + 24px))}
+.hero p.lead{color:#c9c2b6;margin:24px 0 36px;max-width:520px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.loc{margin-top:40px;font-size:.82rem;color:var(--n);display:flex;align-items:center;gap:10px}
+.loc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--d)}
+.art{position:relative;background:linear-gradient(160deg,#2a2622,#15130f 60%,#0c0b09)}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111 0,rgba(17,17,17,.2) 40%,rgba(17,17,17,.35))}
+/* sobre */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.photo{aspect-ratio:4/5;background:linear-gradient(150deg,#d9cdb9,#a99373);position:relative;display:grid;place-items:center}
+.photo::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--d);z-index:-1}
+.photo b{font:italic 500 7rem 'Cormorant Garamond',serif;color:rgba(17,17,17,.35)}
+.about p{margin-top:18px}
+.sig{font:italic 500 2.2rem 'Cormorant Garamond',serif;color:var(--d);margin-top:28px}
+.sig small{display:block;font:500 .72rem Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--n)}
+/* grids */
+.head{margin-bottom:52px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.g5{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.g5>*{grid-column:span 2}.g5>*:nth-child(4){grid-column:2/span 2}.g5>*:nth-child(5){grid-column:4/span 2}
+.card{padding:34px 28px;border:1px solid rgba(255,255,255,.1);transition:.35s;background:rgba(255,255,255,.02)}
+.card:hover{border-color:var(--d);transform:translateY(-4px)}
+.card svg{width:38px;height:38px;stroke:var(--d);fill:none;stroke-width:1.2;margin-bottom:22px}
+.card p{color:var(--n);font-size:.93rem;margin-top:10px}
+.light .card{border-color:rgba(17,17,17,.12);background:#fbf8f3}
+.light .card p{color:#6a6a6a}
+.num{font:500 2.6rem 'Cormorant Garamond',serif;color:var(--d);display:block;margin-bottom:6px}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.tl::before{content:"";position:absolute;top:22px;left:12%;right:12%;height:1px;background:var(--d);opacity:.5}
+.st{text-align:center;padding:0 16px;position:relative}
+.dot{width:44px;height:44px;border-radius:50%;background:var(--g);border:1px solid var(--d);color:var(--d);display:grid;place-items:center;margin:0 auto 22px;font:500 1.1rem 'Cormorant Garamond',serif}
+.st p{color:var(--n);font-size:.9rem;margin-top:8px}
+/* cta */
+.gold .w{text-align:center}.gold p{margin:14px auto 32px;max-width:520px;color:#2a2418}
+.gold h2 em{color:var(--g)}
+/* depo */
+.stars{color:var(--d);letter-spacing:3px;margin-bottom:14px}
+.t{font:italic 500 1.25rem/1.45 'Cormorant Garamond',serif;color:var(--g)!important}
+.who{margin-top:22px;font-size:.85rem;color:var(--g);font-weight:600}.who span{display:block;font-weight:400;color:var(--n)}
+/* faq */
+.faq{max-width:820px;margin:auto}
+.q{border-bottom:1px solid rgba(255,255,255,.12)}
+.q button{width:100%;background:none;border:0;color:var(--c);font:500 1.5rem 'Cormorant Garamond',serif;text-align:left;padding:24px 0;display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+.q button::after{content:"+";color:var(--d);transition:.3s}
+.q.o button::after{transform:rotate(45deg)}
+.a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.q.o .a{grid-template-rows:1fr}
+.a div{overflow:hidden;color:var(--n)}.a div p{padding-bottom:24px}
+/* final */
+.fin{text-align:center}.fin p{color:var(--n);margin:18px auto 34px;max-width:520px}
+footer{border-top:1px solid rgba(176,141,87,.3);padding:48px 0 90px;font-size:.88rem;color:var(--n)}
+footer .w{display:grid;grid-template-columns:1.4fr 1fr .8fr;gap:38px;align-items:start}.footer-brand,.footer-hours,.footer-links{display:flex;flex-direction:column;gap:7px}.footer-hours strong,.footer-links strong{font:500 1.1rem 'Cormorant Garamond',serif;color:var(--c)}.footer-links a{margin:0}.footer-hours small{margin-top:4px;color:#777}
+footer strong{font:500 1.4rem 'Cormorant Garamond',serif;color:var(--c);display:block}
+footer a{color:var(--d);margin-left:22px}
+.wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;background:var(--d);display:grid;place-items:center;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:.3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;fill:var(--g)}
+.r{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.r.v{opacity:1;transform:none}
+@media(max-width:960px){
+.hero{grid-template-columns:1fr;min-height:auto}.hero .l{padding:110px 24px 50px}.art{min-height:340px}
+.art::after{background:linear-gradient(180deg,#111,rgba(17,17,17,.3))}
+.about{grid-template-columns:1fr;gap:56px}.photo{max-width:420px}
+.g4{grid-template-columns:1fr 1fr}.g5{grid-template-columns:1fr 1fr}.g5>*,.g5>*:nth-child(n){grid-column:auto}
+.tl{grid-template-columns:1fr;gap:36px;text-align:left}.tl::before{top:0;bottom:0;left:21px;right:auto;width:1px;height:auto}
+.st{text-align:left;padding-left:72px}.dot{position:absolute;left:0;top:0;margin:0}
+section{padding:72px 0}
+.burger{display:block}
+nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#111;padding:20px 24px;gap:18px;display:none}
+nav ul.on{display:flex}.nav>.btn{display:none}
+}
+@media(max-width:600px){.g4,.g5{grid-template-columns:1fr}.cta .btn,.gold .btn,.fin .btn{width:100%}footer a{margin:0}.footer-grid{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+[hidden]{display:none!important}
+.im{position:absolute;inset:0;overflow:hidden}.im svg{width:100%;height:100%;display:block}
+.ctl{display:flex;gap:10px}
+.ctl button{width:46px;height:46px;border:1px solid var(--d);background:none;color:var(--d);font-size:1.1rem;cursor:pointer;transition:.3s}
+.ctl button:hover{background:var(--d);color:var(--g)}
+.car{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car::-webkit-scrollbar{display:none}
+.sl{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;position:relative;aspect-ratio:3/4;overflow:hidden;display:block;border:1px solid rgba(255,255,255,.1);transition:border-color .35s}
+.sl:hover{border-color:var(--d)}
+.sl .im svg{animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12) translateX(-2%)}}
+.sl::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(17,17,17,.94))}
+.tx{position:absolute;left:26px;right:26px;bottom:26px;z-index:2}
+.tx p{color:#c9c2b6;font-size:.9rem;margin:8px 0 14px}
+.tx span{color:var(--d);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase}
+.bar{height:2px;background:rgba(255,255,255,.12);margin-top:26px}.bar i{display:block;height:100%;width:0;background:var(--d);transition:width .5s}
+.ph{padding:150px 0 40px}
+.fl{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.fl button{padding:11px 22px;border:1px solid rgba(255,255,255,.2);background:none;color:var(--c);font:500 .78rem Manrope;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.fl button:hover,.fl button.on{background:var(--d);border-color:var(--d);color:var(--g)}
+.ms{columns:3;column-gap:20px;padding:20px 0 96px}
+.pi{position:relative;display:block;break-inside:avoid;margin-bottom:20px;overflow:hidden;animation:up .6s both}
+.pi .im{position:relative;aspect-ratio:var(--a)}
+.pi .im svg{transition:transform .8s}.pi:hover .im svg{transform:scale(1.07)}
+.cap{position:absolute;inset:auto 0 0;padding:70px 22px 20px;background:linear-gradient(transparent,rgba(17,17,17,.92));opacity:0;transform:translateY(10px);transition:.4s}
+.pi:hover .cap{opacity:1;transform:none}
+.cap small{color:var(--d);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}.cap h3{font-size:1.5rem}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+@media(hover:none){.cap{opacity:1;transform:none}}
+.pb{position:relative;height:62vh;min-height:380px}
+.pb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.45),#111)}
+.pt{position:absolute;left:0;right:0;bottom:44px;z-index:2}
+.meta{display:flex;gap:40px;flex-wrap:wrap;margin:44px 0;padding:22px 0;border-block:1px solid rgba(176,141,87,.35)}
+.meta small{display:block;color:var(--n);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+.l2{font:italic 500 1.6rem/1.4 'Cormorant Garamond',serif;max-width:760px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.gal .im{position:relative;aspect-ratio:1}.gal .im:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;min-height:100%}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:64px 0}
+.card h3.k{color:var(--d);margin-bottom:6px}.card .pp{color:#c9c2b6}
+.pn{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+@media(max-width:960px){.ms{columns:2}.sl{flex-basis:calc((100% - 20px)/2)}.c3{grid-template-columns:1fr}}
+@media(max-width:600px){.ms{columns:1}.sl{flex-basis:84%}.gal{grid-template-columns:1fr 1fr}.gal .im:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}.pn .btn{width:100%}.ph{padding-top:120px}}
+@media(prefers-reduced-motion:reduce){.sl .im svg,.pi{animation:none}}
+
+.dif{position:relative;overflow:hidden;cursor:pointer;outline:none}
+.card.dif.r{transition:opacity .8s,transform .8s,background .4s,border-color .4s}
+.dif.r.v:hover{transform:translateY(-4px)}
+.dif::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--d);transition:width .5s}
+.dif:hover::before,.dif.on::before,.dif:focus-visible::before{width:100%}
+.light .dif:hover,.light .dif.on,.light .dif:focus-visible{background:#111;border-color:var(--d)}
+.light .dif:hover h3,.light .dif.on h3,.light .dif:focus-visible h3{color:var(--c)}
+.light .dif:hover>p,.light .dif.on>p,.light .dif:focus-visible>p{color:#c9c2b6}
+.dif .num{transition:transform .4s}.dif:hover .num,.dif.on .num{transform:translateX(6px)}
+.pl{position:absolute;top:24px;right:22px;width:14px;height:14px}
+.pl::before,.pl::after{content:"";position:absolute;left:0;top:6px;width:14px;height:1px;background:var(--d);transition:transform .3s}
+.pl::after{transform:rotate(90deg)}.dif.on .pl::after{transform:none}
+.mo{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
+.dif.on .mo,.st.on .mo{grid-template-rows:1fr}
+.mo>div{overflow:hidden}
+.light .dif .mo p,.st .mo p{color:#c9c2b6;font-size:.88rem;margin-top:14px}
+.light .dif .mo p{padding-top:14px;border-top:1px solid rgba(176,141,87,.5)}
+#processo{position:relative;overflow:hidden}
+#processo::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s;background:radial-gradient(480px circle at var(--x,50%) var(--y,40%),rgba(176,141,87,.07),transparent 65%)}
+#processo.lit::before{opacity:1}
+#processo .w{position:relative;z-index:1}
+.st{cursor:pointer;outline:none;z-index:1}
+.st h3{transition:color .4s}
+.st .dot{transition:background .4s,color .4s,box-shadow .4s}
+.st:hover .dot,.st:focus-visible .dot{box-shadow:0 0 0 6px rgba(176,141,87,.08)}
+.st.dn .dot{background:rgba(176,141,87,.16)}
+.st.on .dot{background:var(--d);color:var(--g);box-shadow:0 0 0 7px rgba(176,141,87,.12)}
+.st.on h3{color:var(--d)}
+.tl::after{content:"";position:absolute;z-index:0;top:21px;left:12%;height:2px;width:calc(76%*var(--p,0));background:var(--d);box-shadow:0 0 10px rgba(176,141,87,.3);transition:width .7s ease}
+@media(max-width:960px){.tl::after{top:0;left:20.5px;width:2px;height:calc((100% - 130px)*var(--p,0));transition:height .7s ease}}
+
+/* imagens de exemplo */
+.art{background-image:linear-gradient(90deg,rgba(17,17,17,.65),rgba(17,17,17,.18)),url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85");background-size:cover;background-position:center}.art svg{display:none}.photo{background-image:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85");background-size:cover;background-position:center}.photo b{display:none}.sl .im,.pi .im,.pb>.im,.gal .im{background-size:cover!important;background-position:center!important}.footer-grid{width:100%}
+@media(max-width:960px){footer .w{grid-template-columns:1fr 1fr}.footer-links{grid-column:1/-1}}
+
+/* mapa e zoom das imagens */
+.light .btn.o{color:var(--g)}
+.loc2{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.loc2 .ad{margin:0 0 28px;font-size:.92rem}
+.mapw{position:relative;height:320px;border:1px solid var(--d);background:#e6dfd2}
+.mapw iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) contrast(1.05);transition:filter .5s}
+.mapw:hover iframe{filter:none}
+.pi{cursor:zoom-in}
+.pi::after{content:"\2922";position:absolute;top:14px;right:14px;width:38px;height:38px;display:grid;place-items:center;background:rgba(17,17,17,.7);color:var(--d);border:1px solid var(--d);opacity:0;transition:opacity .3s}
+.pi:hover::after,.pi:focus-visible::after{opacity:1}
+@media(hover:none){.pi::after{opacity:1}}
+.gal .im{cursor:zoom-in}
+#lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.95);display:flex;align-items:center;justify-content:center;padding:16px;animation:lf .3s}
+@keyframes lf{from{opacity:0}}
+.lbf{margin:0;display:flex;flex-direction:column;align-items:center;gap:18px;max-height:100%;animation:lz .4s}
+@keyframes lz{from{opacity:0;transform:scale(.96)}}
+#lbi{position:relative}
+#lbi.sv{width:min(92vw,calc(62vh*.8));aspect-ratio:4/5;border:1px solid rgba(176,141,87,.5)}
+#lbi img{display:block;max-width:min(92vw,1200px);max-height:64vh;min-width:220px;min-height:160px;object-fit:contain;background:#181818;border:1px solid rgba(176,141,87,.5)}
+#lbc{text-align:center;max-width:min(92vw,520px)}
+#lbc small{color:var(--d);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+#lbc h3{font-size:1.9rem}
+#lbc p{color:#c9c2b6;font-size:.9rem;margin-top:6px}
+.lbb{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.lbb span{color:var(--n);font-size:.8rem;letter-spacing:.14em}
+.lbx,.lbn{position:absolute;width:46px;height:46px;border:1px solid var(--d);background:rgba(17,17,17,.75);color:var(--d);font-size:1.5rem;line-height:1;cursor:pointer;transition:.3s}
+.lbx:hover,.lbn:hover{background:var(--d);color:var(--g)}
+.lbx{top:calc(14px + env(safe-area-inset-top,0px));right:16px}
+.lbn{top:50%;margin-top:-23px}.lbn.p{left:16px}.lbn.n{right:16px}
+@media(max-width:960px){.loc2{grid-template-columns:1fr;gap:36px}.mapw{height:280px}}
+@media(max-width:600px){.loc2 .cta .btn{width:100%}}
+</style>
+</head>
+<body>
+<header id="h"><div class="w nav">
+<a class="logo" href="#inicio">Lukas <span>Camargo</span></a>
+<nav><ul id="m">
+<li><a href="#inicio">Início</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#/portfolio">Portfólio</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato">Contato</a></li>
+</ul></nav>
+<a class="btn wl" href="#">WhatsApp</a>
+<button class="burger" id="b" aria-label="Abrir menu">☰</button>
+</div></header>
+
+<main id="home">
+<section class="hero" id="inicio">
+<div class="l">
+<p class="eyebrow">Arquitetura &amp; Interiores</p>
+<h1>Projetos Arquitetônicos Pensados para <em>Valorizar</em> Seu Espaço</h1>
+<p class="lead">Projetos residenciais, comerciais e corporativos desenvolvidos com foco em funcionalidade, estética e planejamento.</p>
+<div class="cta"><a class="btn wl" href="#">Solicitar Avaliação do Projeto</a><a class="btn o" href="#/portfolio">Conhecer Projetos</a></div>
+<div class="loc">Ourinhos-SP e Atendimento On-line</div>
+</div>
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#B08D57" stroke-width="1" opacity=".55"><path d="M80 620V220h200v400M280 620V120h240v500M40 620h520"/><path d="M120 280h120M120 340h120M120 400h120M320 180h160M320 240h160M320 300h160M320 360h160" opacity=".5"/></g><rect x="280" y="120" width="240" height="500" fill="#B08D57" opacity=".08"/><rect x="80" y="220" width="200" height="400" fill="#F4EEE5" opacity=".05"/><circle cx="470" cy="80" r="34" fill="#B08D57" opacity=".25"/></svg>
+</div>
+</section>
+
+<section class="light" id="sobre"><div class="w about">
+<div class="photo r" role="img" aria-label="Retrato do arquiteto Lukas Camargo"><b>NC</b></div>
+<div class="r">
+<p class="eyebrow">Sobre</p>
+<h2>Projetos que Começam com <em>Escuta</em> e Planejamento</h2>
+<p>Arquitetura que une <em>funcionalidade</em>, <em>sofisticação</em> e <em>planejamento</em>. Cada projeto nasce de uma conversa atenta, para entender como você vive, trabalha e o que deseja para o seu espaço.</p>
+<p>Com atuação em Ourinhos-SP e atendimento on-line para todo o Brasil, o escritório acompanha cada etapa com proximidade, comunicação transparente e cuidado com os detalhes, do primeiro traço à entrega final.</p>
+<p>O resultado são ambientes funcionais, bonitos e pensados para valorizar o seu investimento, seja em uma casa, uma loja ou uma sede corporativa.</p>
+<div class="sig">Lukas Camargo<small>Arquiteto e Urbanista</small></div>
+</div></div></section>
+
+<section id="servicos"><div class="w">
+<div class="head r" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap"><div><p class="eyebrow">Serviços</p><h2>Soluções para cada <em>tipo de espaço</em></h2></div>
+<div class="ctl"><button id="pv" aria-label="Anterior">←</button><button id="nx" aria-label="Próximo">→</button></div></div>
+<div class="car r" id="car"></div><div class="bar"><i id="bi"></i></div>
+</div></section>
+
+<section class="light" id="diferenciais"><div class="w">
+<div class="head r"><p class="eyebrow">Diferenciais</p><h2>O que torna o projeto <em>único</em></h2><p class="sub">Toque ou clique em cada item para ver como aplicamos na prática.</p></div>
+<div class="g5">
+<div class="card dif r" tabindex="0" role="button" aria-expanded="false"><i class="pl"></i><span class="num">01</span><h3>Atendimento Personalizado</h3><p>Cada cliente é único. O projeto é desenhado sob medida para você.</p><div class="mo"><div><p>Cada projeto parte de uma escuta atenta: rotina, referências e orçamento definem o desenho, sem fórmulas prontas.</p></div></div></div>
+<div class="card dif r" tabindex="0" role="button" aria-expanded="false"><i class="pl"></i><span class="num">02</span><h3>Planejamento Estratégico</h3><p>Decisões pensadas desde o início para evitar retrabalho e desperdício.</p><div class="mo"><div><p>Antes de desenhar, definimos prioridades, etapas e custos, reduzindo imprevistos e retrabalho na obra.</p></div></div></div>
+<div class="card dif r" tabindex="0" role="button" aria-expanded="false"><i class="pl"></i><span class="num">03</span><h3>Comunicação Transparente</h3><p>Você acompanha cada etapa, com clareza sobre prazos e escolhas.</p><div class="mo"><div><p>Você recebe atualizações claras em cada fase, com prazos combinados e decisões sempre registradas.</p></div></div></div>
+<div class="card dif r" tabindex="0" role="button" aria-expanded="false"><i class="pl"></i><span class="num">04</span><h3>Soluções Funcionais</h3><p>Estética e praticidade lado a lado, para um espaço que funciona no dia a dia.</p><div class="mo"><div><p>Fluxos, ergonomia, ventilação e iluminação resolvidos para que o espaço funcione bem todos os dias.</p></div></div></div>
+<div class="card dif r" tabindex="0" role="button" aria-expanded="false"><i class="pl"></i><span class="num">05</span><h3>Atenção aos Detalhes</h3><p>É nos detalhes que o projeto ganha sofisticação e personalidade.</p><div class="mo"><div><p>Revisamos cada encontro, acabamento e instalação para que a execução seja fiel ao projeto.</p></div></div></div>
+</div></div></section>
+
+<section id="processo"><div class="w">
+<div class="head r"><p class="eyebrow">Processo</p><h2>Do primeiro contato à <em>entrega</em></h2></div>
+<div class="tl" id="tl">
+<div class="st r" tabindex="0" role="button"><div class="dot">01</div><h3>Conversa Inicial</h3><p>Entendemos suas necessidades, desejos e o orçamento disponível.</p><div class="mo"><div><p>Reunião por WhatsApp, vídeo ou presencial para conhecer sua rotina, suas referências e o que você espera do espaço.</p></div></div></div>
+<div class="st r" tabindex="0" role="button"><div class="dot">02</div><h3>Desenvolvimento</h3><p>Estudo, conceito e desenvolvimento técnico do projeto.</p><div class="mo"><div><p>Estudo preliminar, plantas e detalhamento técnico, sempre alinhados ao orçamento combinado.</p></div></div></div>
+<div class="st r" tabindex="0" role="button"><div class="dot">03</div><h3>Apresentação</h3><p>Você visualiza o projeto, sugere ajustes e aprova.</p><div class="mo"><div><p>Apresentamos o projeto em imagens e plantas e fazemos os ajustes até chegarmos ao resultado ideal.</p></div></div></div>
+<div class="st r" tabindex="0" role="button"><div class="dot">04</div><h3>Entrega</h3><p>Documentação completa, pronta para execução da obra.</p><div class="mo"><div><p>Entrega do projeto completo, com orientação para a execução e, se desejar, acompanhamento da obra.</p></div></div></div>
+</div></div></section>
+
+<section class="gold"><div class="w r">
+<h2>Vamos conversar sobre o <em>seu projeto?</em></h2>
+<p>Conte sua ideia pelo WhatsApp. A conversa inicial é simples, sem compromisso.</p>
+<a class="btn wl" href="#">Falar com o Arquiteto</a>
+</div></section>
+
+<section class="light"><div class="w">
+<div class="head r"><p class="eyebrow">Depoimentos</p><h2>Quem confiou, <em>recomenda</em></h2></div>
+<div class="g4" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+<div class="card r"><div class="stars">★★★★★</div><p class="t">“Escutou cada detalhe do que queríamos. A casa ficou exatamente como sonhamos.”</p><div class="who">Cliente Residencial<span>Ourinhos-SP</span></div></div>
+<div class="card r"><div class="stars">★★★★★</div><p class="t">“Processo claro, prazos cumpridos e um projeto que valorizou muito o nosso espaço comercial.”</p><div class="who">Cliente Comercial<span>Ourinhos-SP</span></div></div>
+<div class="card r"><div class="stars">★★★★★</div><p class="t">“Mesmo à distância, o atendimento on-line foi impecável. Recomendo de olhos fechados.”</p><div class="who">Cliente On-line<span>São Paulo-SP</span></div></div>
+</div>
+</div></section>
+
+<section class="dark2" id="faq"><div class="w">
+<div class="head r" style="text-align:center"><p class="eyebrow" style="justify-content:center">FAQ</p><h2>Perguntas <em>frequentes</em></h2></div>
+<div class="faq r">
+<div class="q"><button>Qual o prazo para desenvolver um projeto?</button><div class="a"><div><p>O prazo varia conforme o tamanho e a complexidade. Após a conversa inicial, informamos um cronograma claro para o seu caso.</p></div></div></div>
+<div class="q"><button>Vocês atendem on-line?</button><div class="a"><div><p>Sim. Atendemos presencialmente em Ourinhos-SP e on-line, com reuniões por vídeo e envio digital do projeto.</p></div></div></div>
+<div class="q"><button>Como funciona o orçamento?</button><div class="a"><div><p>Após entender sua necessidade pelo WhatsApp, enviamos uma proposta personalizada, sem compromisso.</p></div></div></div>
+<div class="q"><button>Vocês fazem projetos de reforma?</button><div class="a"><div><p>Sim. Desenvolvemos reformas e revitalizações para residências e espaços comerciais, com foco em funcionalidade e valorização.</p></div></div></div>
+<div class="q"><button>Há acompanhamento de obra?</button><div class="a"><div><p>Sim. Podemos acompanhar a execução para garantir que o projeto seja fielmente realizado. Combinamos o formato na proposta.</p></div></div></div>
+<div class="q"><button>Vocês atendem fora de Ourinhos?</button><div class="a"><div><p>Sim. Além do atendimento presencial em Ourinhos-SP, também realizamos atendimento on-line para clientes de outras cidades.</p></div></div></div>
+</div></div></section>
+
+<section class="light" id="localizacao"><div class="w loc2">
+<div class="r"><p class="eyebrow">Localização</p><h2>Onde nos <em>encontrar</em></h2>
+<p style="margin:18px 0 14px">Atendimento presencial em Ourinhos-SP e on-line para todo o Brasil. Agende uma conversa e conheça o escritório.</p>
+<p class="ad">Campus Universitário, BR-153, km 338 – Água do Cateto, Ourinhos-SP, 19909-100</p>
+<div class="cta"><a class="btn" id="rota" target="_blank" rel="noopener" href="#">Como chegar</a><a class="btn o wl" href="#">WhatsApp</a></div></div>
+<div class="mapw r"><iframe id="mp" title="Mapa de localização do escritório em Ourinhos-SP" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+</div></section>
+
+<section class="fin" id="contato"><div class="w r">
+<h2>Seu projeto começa com uma <em>boa conversa.</em></h2>
+<p>Fale agora com o escritório e descubra como transformar o seu espaço.</p>
+<a class="btn wl" href="#">Receber Atendimento pelo WhatsApp</a>
+</div></section>
+</main>
+<main id="pf" hidden>
+<section class="ph"><div class="w"><p class="eyebrow">Portfólio</p><h1>Projetos que <em>transformam</em> espaços</h1><p class="sub">Uma seleção de obras residenciais, comerciais, de interiores e reformas.</p><div class="fl" id="fl"></div></div></section>
+<div class="w"><div class="ms" id="ms"></div></div>
+<section class="gold"><div class="w"><h2>Quer um projeto <em>assim</em> para você?</h2><p>Conte sua ideia pelo WhatsApp e receba uma proposta personalizada.</p><a class="btn wl" href="#">Solicitar Orçamento</a></div></section>
+</main>
+<main id="pj" hidden></main>
+
+
+<footer><div class="w footer-grid">
+<div class="footer-brand"><strong>Lukas Camargo Arquitetura</strong><span>Arquiteto e Urbanista</span><span>CAU: informar número</span><span>CAMPUS UNIVERSITÁRIO, BR-153, KM 338 - ÁGUA DO CATETO, Ourinhos - SP, 19909-100</span><span>Contato: (14) 99700-0285</span></div>
+<div class="footer-hours"><strong>Horário de atendimento</strong><span>Segunda a sexta: 08:00–18:00</span><span>Sábado: Fechado</span><span>Domingo: Fechado</span><small>Em feriados, o horário pode sofrer alterações.</small></div>
+<div class="footer-links"><strong>Links</strong><a href="#/portfolio">Portfólio</a><a class="wl" href="#">WhatsApp</a><a href="https://www.instagram.com/lukascamargo_/" target="_blank" rel="noopener">Instagram @lukascamargo_</a></div>
+</div></footer>
+
+<a class="wa wl" href="#" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-1.900.9-2.200.2-.2.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .500l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.4.100.6-.1l.8-1c.2-.3.4-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Visualização do projeto" hidden>
+<button class="lbx" id="lbx" aria-label="Fechar">×</button>
+<button class="lbn p" id="lbp" aria-label="Anterior">‹</button>
+<figure class="lbf"><div id="lbi"></div><figcaption id="lbc"></figcaption></figure>
+<button class="lbn n" id="lbn" aria-label="Próximo">›</button>
+</div>
+<script>
+// Troque pelo número real (DDI+DDD+número, só dígitos)
+var N="5514997000285",M="Olá! Vim pelo site e gostaria de solicitar um orçamento de projeto.";
+var u="https://wa.me/"+N+"?text="+encodeURIComponent(M);
+document.querySelectorAll(".wl").forEach(function(a){a.href=u;a.target="_blank";a.rel="noopener"});
+var h=document.getElementById("h");
+var sub=0;function s(){h.classList.toggle("s",scrollY>40||sub)}s();addEventListener("scroll",s,{passive:true});
+var m=document.getElementById("m");
+document.getElementById("b").onclick=function(){m.classList.toggle("on")};
+m.onclick=function(){m.classList.remove("on")};
+document.querySelectorAll(".q button").forEach(function(b){b.onclick=function(){
+var q=b.parentNode,o=q.classList.contains("o");
+document.querySelectorAll(".q.o").forEach(function(x){x.classList.remove("o")});
+if(!o)q.classList.add("o")}});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add("v");io.unobserve(t);setTimeout(function(){t.style.transitionDelay=""},1200)}})},{threshold:.12});
+document.querySelectorAll(".r").forEach(function(el,i){el.style.transitionDelay=(i%4)*80+"ms";io.observe(el)});
+
+var $=function(i){return document.getElementById(i)};
+var WL=function(t){return "https://wa.me/"+N+"?text="+encodeURIComponent(t)};
+var L={residencial:"Residencial",comercial:"Comercial",interiores:"Interiores",reformas:"Reformas"};
+var K={residencial:["#3b3329","#14110d"],comercial:["#2c3033","#101214"],interiores:["#4a3a2c","#17110b"],reformas:["#38332b","#12110e"]};
+var C={
+residencial:["Integrar áreas sociais, conforto térmico e privacidade em um terreno com limitações de insolação e topografia.","Plantas fluidas, grandes aberturas e ventilação cruzada, com materiais naturais e paisagismo integrado.","Uma casa acolhedora e funcional, que acompanha a rotina da família e valoriza o imóvel."],
+comercial:["Criar um espaço que reforçasse a marca, otimizasse o fluxo de pessoas e respeitasse o orçamento.","Layout estratégico, iluminação cênica e acabamentos duráveis, alinhados à identidade do negócio.","Um ambiente que transmite credibilidade, melhora a experiência do cliente e facilita a operação."],
+interiores:["Unir estética e praticidade em ambientes com pouca metragem e muitas demandas de uso.","Marcenaria sob medida, paleta equilibrada e iluminação em camadas, com mobiliário selecionado.","Ambientes harmoniosos e confortáveis, com identidade própria e atenção a cada detalhe."],
+reformas:["Modernizar um espaço existente, preservando o que tinha valor e resolvendo problemas de uso e conservação.","Reorganização de layout, revisão de instalações e novos revestimentos, com obra planejada em etapas.","Um espaço renovado, mais funcional e valorizado, sem perder a memória do original."]};
+var P=[
+["casa-jardim-alto","Casa Jardim Alto","residencial","Ourinhos-SP","2024","320 m²","4/5","Residência térrea integrada ao jardim, com grandes vãos e materiais naturais."],
+["residencia-horizonte","Residência Horizonte","residencial","Ourinhos-SP","2023","410 m²","1/1","Sobrado contemporâneo com varanda gourmet e linhas limpas voltadas para o pôr do sol."],
+["clinica-aura","Clínica Aura","comercial","Ourinhos-SP","2024","180 m²","4/3","Clínica com recepção acolhedora e fluxo pensado para pacientes e equipe."],
+["escritorio-meridiano","Escritório Meridiano","comercial","Ourinhos-SP","2023","240 m²","3/4","Sede corporativa com salas flexíveis, iluminação natural e identidade sóbria."],
+["apartamento-lumi","Apartamento Lumi","interiores","São Paulo-SP","2024","95 m²","4/5","Apartamento compacto com marcenaria sob medida e integração total dos ambientes."],
+["living-sereno","Living Sereno","interiores","Ourinhos-SP","2022","60 m²","4/3","Sala de estar em tons terrosos, com iluminação em camadas e peças autorais."],
+["casa-renovada","Casa Renovada","reformas","Ourinhos-SP","2023","210 m²","1/1","Reforma completa de casa antiga, com nova planta e fachada atualizada."],
+["sobrado-centro","Sobrado Centro","reformas","Ourinhos-SP","2022","280 m²","3/4","Revitalização de sobrado comercial, preservando elementos originais."]];
+var S=[["residencial","Projetos Residenciais","Casas e apartamentos planejados para o seu estilo de vida."],["comercial","Projetos Comerciais","Lojas, clínicas e escritórios que reforçam sua marca."],["interiores","Design de Interiores","Materiais, luz e mobiliário em perfeita harmonia."],["reformas","Reformas e Revitalizações","Novo uso e mais valor para espaços existentes."]];
+var IMG={residencial:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85',comercial:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85',interiores:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85',reformas:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85'};
+function art(c,sd){var r=function(){sd=(sd*9301+49297)%233280;return sd/233280},o="";
+for(var k=0;k<4;k++){var w=60+r()*100,x=r()*(400-w),h=140+r()*260;
+o+='<rect x="'+x+'" y="'+(420-h)+'" width="'+w+'" height="'+h+'" fill="#F4EEE5" fill-opacity="'+(.05+r()*.07)+'" stroke="#B08D57" stroke-opacity=".5"/>';
+for(var j=1;j<h/45;j++)o+='<path d="M'+(x+10)+' '+(420-h+j*45)+'h'+(w-20)+'" stroke="#B08D57" stroke-opacity=".25"/>'}
+var key=Object.keys(K).find(function(k){return K[k]===c}); if(key&&IMG[key]) return '<div class="im" style="background-image:linear-gradient(180deg,rgba(17,17,17,.05),rgba(17,17,17,.15)),url('+IMG[key]+')"></div>'; return '<div class="im" style="background:linear-gradient(160deg,'+c[0]+','+c[1]+')"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+o+'<path d="M0 420h400" stroke="#B08D57"/><circle cx="'+(60+r()*280)+'" cy="'+(50+r()*60)+'" r="26" fill="#B08D57" fill-opacity=".3"/></svg></div>'}
+/* carrossel */
+var car=$("car"),bi=$("bi"),hold=0,inView=0;
+car.innerHTML=S.map(function(v,i){return '<a class="sl" href="#/portfolio/'+v[0]+'">'+art(K[v[0]],i*77+5)+'<div class="tx"><span>0'+(i+1)+'</span><h3>'+v[1]+'</h3><p>'+v[2]+'</p><span>Ver projetos →</span></div></a>'}).join("");
+function step(d){var w=car.firstChild.offsetWidth+20,mx=car.scrollWidth-car.clientWidth,t=car.scrollLeft+d*w;
+if(t>mx+5)t=0;if(t<-5)t=mx;car.scrollTo({left:t,behavior:"smooth"})}
+$("pv").onclick=function(){step(-1)};$("nx").onclick=function(){step(1)};
+car.onscroll=function(){bi.style.width=Math.min(100,(car.scrollLeft+car.clientWidth)/car.scrollWidth*100)+"%"};car.onscroll();
+new IntersectionObserver(function(e){inView=e[0].isIntersecting}).observe(car);
+["mouseenter","touchstart"].forEach(function(e){car.addEventListener(e,function(){hold=1},{passive:true})});
+["mouseleave","touchend"].forEach(function(e){car.addEventListener(e,function(){setTimeout(function(){hold=0},2500)},{passive:true})});
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)setInterval(function(){if(!hold&&inView&&!document.hidden)step(1)},3800);
+/* portfólio */
+var F=[["todos","Todos"],["residencial","Residenciais"],["comercial","Comerciais"],["interiores","Interiores"],["reformas","Reformas"]];
+$("fl").innerHTML=F.map(function(f){return '<button data-c="'+f[0]+'">'+f[1]+'</button>'}).join("");
+$("fl").onclick=function(e){var c=e.target.dataset.c;if(c)location.hash=c=="todos"?"#/portfolio":"#/portfolio/"+c};
+$("ms").innerHTML=P.map(function(p,i){return '<a class="pi" data-c="'+p[2]+'" href="#/projeto/'+p[0]+'" style="--a:'+p[6]+'">'+art(K[p[2]],i*131+9)+'<div class="cap"><small>'+L[p[2]]+'</small><h3>'+p[1]+'</h3></div></a>'}).join("");
+function filt(c){document.querySelectorAll("#fl button").forEach(function(b){b.classList.toggle("on",b.dataset.c==c)});
+document.querySelectorAll(".pi").forEach(function(a){a.hidden=!(c=="todos"||a.dataset.c==c);a.style.animation="none";a.offsetWidth;a.style.animation=""})}
+/* projeto */
+function proj(id){var i=P.findIndex(function(p){return p[0]==id});if(i<0)return 0;
+var p=P[i],c=C[p[2]],nx=P[(i+1)%P.length],g="";
+for(var k=0;k<5;k++)g+=art(K[p[2]],i*53+k*17+3).replace('class="im"','class="im" data-s="'+(i*53+k*17+3)+'" tabindex="0" role="button" aria-label="Ampliar imagem"');
+var bl=function(t,x){return '<div class="card"><h3 class="k">'+t+'</h3><p class="pp">'+x+'</p></div>'};
+$("pj").innerHTML='<div class="pb">'+art(K[p[2]],i*131+9)+'<div class="pt"><div class="w"><p class="eyebrow">'+L[p[2]]+'</p><h1>'+p[1]+'</h1></div></div></div><div class="w">'+
+'<div class="meta"><div><small>Local</small>'+p[3]+'</div><div><small>Ano</small>'+p[4]+'</div><div><small>Área</small>'+p[5]+'</div><div><small>Categoria</small>'+L[p[2]]+'</div></div>'+
+'<p class="l2">'+p[7]+'</p><div class="gal">'+g+'</div>'+
+'<div class="c3">'+bl("Desafios",c[0])+bl("Soluções aplicadas",c[1])+bl("Resultado final",c[2])+'</div>'+
+'<div class="fin" style="padding:30px 0 96px"><h2>Gostou deste projeto? <em>Vamos conversar.</em></h2><p>Conte sua ideia e receba uma proposta personalizada.</p><div class="pn"><a class="btn" target="_blank" rel="noopener" href="'+WL("Olá! Vi o projeto "+p[1]+" no site e gostaria de um orçamento.")+'">Falar pelo WhatsApp</a><a class="btn o" href="#/portfolio">← Portfólio</a><a class="btn o" href="#/projeto/'+nx[0]+'">Próximo projeto →</a></div></div></div>';
+return 1}
+/* rotas */
+function route(){var H=location.hash,q=H.split("/"),v="home";
+if(q[1]=="portfolio"){v="pf";filt(q[2]||"todos")}
+else if(q[1]=="projeto"&&proj(q[2]))v="pj";
+["home","pf","pj"].forEach(function(i){$(i).hidden=i!=v});
+sub=v!="home";s();
+var e=v=="home"&&$(H.slice(1));e?e.scrollIntoView():scrollTo(0,0)}
+addEventListener("hashchange",route);route();
+
+/* diferenciais */
+document.querySelectorAll(".dif").forEach(function(c){
+var t=function(){var o=c.classList.contains("on");document.querySelectorAll(".dif.on").forEach(function(x){x.classList.remove("on");x.setAttribute("aria-expanded","false")});if(!o){c.classList.add("on");c.setAttribute("aria-expanded","true")}};
+c.onclick=t;c.onkeydown=function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();t()}}});
+/* processo */
+var pr=$("processo"),tl=$("tl"),st=[].slice.call(document.querySelectorAll(".st")),ud=0;
+function act(i){st.forEach(function(x,j){x.classList.toggle("on",j==i);x.classList.toggle("dn",j<i)});tl.style.setProperty("--p",i/3)}
+act(0);
+st.forEach(function(x,i){x.onclick=function(){ud=1;act(i)};x.onkeydown=function(e){if(e.key=="Enter"||e.key==" "){e.preventDefault();ud=1;act(i)}};
+x.onmouseenter=function(){if(matchMedia("(hover:hover)").matches){ud=1;act(i)}}});
+new IntersectionObserver(function(e,o){if(e[0].isIntersecting){o.disconnect();var i=0,iv=setInterval(function(){if(ud||++i>3)return clearInterval(iv);act(i)},1100)}},{threshold:.3}).observe(tl);
+var lt=function(e){var r=pr.getBoundingClientRect();pr.style.setProperty("--x",e.clientX-r.left+"px");pr.style.setProperty("--y",e.clientY-r.top+"px");pr.classList.add("lit")};
+pr.addEventListener("pointermove",lt,{passive:true});pr.addEventListener("pointerdown",lt,{passive:true});
+pr.addEventListener("pointerleave",function(e){if(e.pointerType=="mouse")pr.classList.remove("lit")});
+
+/* mapa */
+var END="CAMPUS UNIVERSITÁRIO, BR-153, KM 338 - ÁGUA DO CATETO, Ourinhos - SP, 19909-100";
+$("mp").src="https://www.google.com/maps?q="+encodeURIComponent(END)+"&z=15&output=embed";
+$("rota").href="https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(END);
+/* lightbox */
+var LB={l:[],i:0,o:0};
+function lbShow(){var it=LB.l[LB.i],h=art(K[it.c],it.s),m=h.match(/url\(([^)]+)\)/),b=$("lbi");
+if(m){b.className="";b.innerHTML='<img alt="'+it.t+'" src="'+m[1].replace(/["']/g,"").replace(/([?&]w=)\d+/,function(a,x){return x+"1800"})+'">'}else{b.className="sv";b.innerHTML=h}
+$("lbc").innerHTML='<small>'+L[it.c]+'</small><h3>'+it.t+'</h3>'+(it.d?'<p>'+it.d+'</p>':'')+'<div class="lbb">'+(it.id?'<a class="btn" href="#/projeto/'+it.id+'">Ver projeto completo</a>':'')+'<span>'+(LB.i+1)+' / '+LB.l.length+'</span></div>';
+$("lbp").hidden=$("lbn").hidden=LB.l.length<2}
+function lbOpen(l,i){LB.l=l;LB.i=i;LB.o=1;lbShow();$("lb").hidden=false;document.body.style.overflow="hidden";$("lbx").focus()}
+function lbClose(){LB.o=0;$("lb").hidden=true;document.body.style.overflow=""}
+function lbGo(d){LB.i=(LB.i+d+LB.l.length)%LB.l.length;lbShow()}
+$("lbx").onclick=lbClose;$("lbp").onclick=function(){lbGo(-1)};$("lbn").onclick=function(){lbGo(1)};
+$("lb").addEventListener("click",function(e){if(e.target==this)lbClose()});
+addEventListener("keydown",function(e){if(!LB.o)return;if(e.key=="Escape")lbClose();else if(e.key=="ArrowLeft")lbGo(-1);else if(e.key=="ArrowRight")lbGo(1)});
+addEventListener("hashchange",lbClose);
+var tx=0;
+$("lb").addEventListener("touchstart",function(e){tx=e.touches[0].clientX},{passive:true});
+$("lb").addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)lbGo(d<0?1:-1)},{passive:true});
+$("ms").addEventListener("click",function(e){var a=e.target.closest(".pi");if(!a||e.ctrlKey||e.metaKey)return;e.preventDefault();
+var vis=[].slice.call(document.querySelectorAll(".pi")).filter(function(x){return !x.hidden});
+lbOpen(vis.map(function(x){var id=x.getAttribute("href").split("/")[2],k=P.findIndex(function(p){return p[0]==id}),p=P[k];return{s:k*131+9,c:p[2],t:p[1],d:p[7],id:id}}),vis.indexOf(a))});
+$("pj").addEventListener("click",function(e){var g=e.target.closest(".gal .im");if(!g)return;
+var all=[].slice.call(document.querySelectorAll(".gal .im")),id=location.hash.split("/")[2],p=P[P.findIndex(function(p){return p[0]==id})];
+lbOpen(all.map(function(x){return{s:+x.dataset.s,c:p[2],t:p[1],d:p[7],id:""}}),all.indexOf(g))});
+$("pj").addEventListener("keydown",function(e){if((e.key=="Enter"||e.key==" ")&&e.target.matches(".gal .im")){e.preventDefault();e.target.click()}});
+</script>
+</body>
+</html>
